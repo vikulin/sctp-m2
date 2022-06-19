@@ -28,8 +28,8 @@ import (
 
 func SetsockoptInt(conn *SCTPConn, optname, optval int) (error) {
 	err := syscall.SetsockoptInt(conn.fd(), SOL_SCTP, optname, optval)
-	fmt.Printf("DEBUG: socket no_delay [%+v]", err)
-	if err != 0 {
+	if err != nil {
+		fmt.Printf("DEBUG: socket no_delay [%+v]", err)
 		return err
 	}
 	return nil
